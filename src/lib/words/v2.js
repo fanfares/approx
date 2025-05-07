@@ -53,7 +53,7 @@ const Words = [
 "each",
 "east",
 "easy",
-"ebay",
+"ebb",
 "end",
 "even",
 "fax",
