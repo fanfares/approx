@@ -1,3 +1,5 @@
+// run this file via cli to convert a 1-word-per-line text file into a usable word list
+// `node convert-list-to-array.js v1.txt`
 const fs = require('fs');
 
 // Main function
@@ -81,36 +83,36 @@ processWordFile(inputFile);
 
 
 
-  
-  
-
-
-
-
-
-  
 
 
 
 
 
 
-  
-  
-  
-
-
-
-
-  
-  
 
 
 
 
 
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

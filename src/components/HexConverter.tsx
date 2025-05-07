@@ -32,7 +32,7 @@ export default function HexConverter() {
   return (
     <div className="mb-12 p-6 border rounded-lg bg-white shadow-sm">
       <h2 className="text-2xl font-semibold mb-4">Event ID to Words</h2>
-      
+
       <div className="space-y-4">
         <div>
           <label htmlFor="hexInput" className="block text-sm font-medium text-gray-700 mb-1">
