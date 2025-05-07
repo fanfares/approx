@@ -1,4 +1,4 @@
-import Words from './words/v1.js'
+import Words from './words/v2.js'
 
 // Create a map of words to their byte values
 const wordToByteMap = new Map<string, number>();

@@ -5,7 +5,6 @@ import { Event } from 'nostr-tools';
 import { wordsToBytes } from '@/lib/wordUtils';
 import { lookupEvents } from '@/lib/nostrUtils';
 import HexConverter from '@/components/HexConverter';
-import TestConversion from '@/components/TestConversion';
 
 export default function Home() {
   const [input, setInput] = useState('');
@@ -17,7 +16,7 @@ export default function Home() {
     e.preventDefault();
     setError(null);
     setLoading(true);
-    
+
     try {
       const bytes = wordsToBytes(input);
       const foundEvents = await lookupEvents(bytes);
@@ -36,7 +35,7 @@ export default function Home() {
   return (
     <main className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Nostr Event Lookup</h1>
-      
+
       {/* Word to Event Search */}
       <div className="mb-12 p-6 border rounded-lg bg-white shadow-sm">
         <h2 className="text-2xl font-semibold mb-4">Search Events by Words</h2>
@@ -87,8 +86,6 @@ export default function Home() {
       {/* Event ID to Words Converter */}
       <HexConverter />
 
-      {/* Test Component */}
-      <TestConversion />
     </main>
   );
 }
