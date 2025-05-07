@@ -1,10 +1,4 @@
 const fs = require('fs');
-const crypto = require('crypto');
-
-// Function to hash a string using SHA-256
-function hashString(str) {
-  return crypto.createHash('sha256').update(str).digest('hex');
-}
 
 // Main function
 function processWordFile() {
@@ -20,25 +14,18 @@ function processWordFile() {
     const uniqueWords = [...new Set(words)];
     const duplicatesRemoved = words.length - uniqueWords.length;
 
-    if (duplicatesRemoved > 0) {
-      console.log(`Found and removed ${duplicatesRemoved} duplicate words`);
+    // Sort words alphabetically
+    uniqueWords.sort();
 
-      // Write unique words back to file
-      fs.writeFileSync(filePath, uniqueWords.join('\n'));
-      console.log(`File now contains ${uniqueWords.length} unique words`);
-    } else {
-      console.log('No duplicate words found in the file');
-    }
+    // Write unique, sorted words back to file
+    fs.writeFileSync('v1.js', 'const Words = [\n');
+    fs.appendFileSync('v1.js', uniqueWords.map(word => `"${word}",`).join('\n'))
+    fs.appendFileSync('v1.js', '\n]\nexport default Words');
 
-    // Generate hashes for each word
-    console.log('\nGenerating SHA-256 hashes for each word:');
-    const wordHashes = new Map();
-
-    uniqueWords.forEach(word => {
-      const hash = hashString(word);
-      wordHashes.set(word, hash);
-      // console.log(`${word}: ${hash}`);
-    });
+    console.log(`Processed file successfully:`);
+    console.log(`- Found and removed ${duplicatesRemoved} duplicate words`);
+    console.log(`- Sorted words alphabetically`);
+    console.log(`- File now contains ${uniqueWords.length} unique words`);
 
   } catch (error) {
     console.error(`Error: ${error.message}`);
