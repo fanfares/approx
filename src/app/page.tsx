@@ -71,16 +71,11 @@ export default function Home() {
                 <div className="whitespace-pre-wrap">{event.content}</div>
                 <br />
                 <div className="text-sm text-gray-500 mb-2">
-                  Author: <a href={`https://primal.net/p/${event.pubkey}`} target='_blank'>{event.pubkey}</a> <br />
-                  ID: <a href={`https://primal.net/e/${event.id}`} target="_blank">{event.id}</a> <br />
+                  Author: <a className="text-blue-500 underline" href={`https://primal.net/p/${event.pubkey}`} target='_blank'>{event.pubkey}</a> <br />
+                  ID: <a className="text-blue-500 underline" href={`https://primal.net/e/${event.id}`} target="_blank">{event.id}</a> <br />
                   Kind: {event.kind} <br />
                   Created: {new Date(event.created_at * 1000).toLocaleString()}
                 </div>
-                {/* {event.tags.length > 0 && ( */}
-                {/*   <div className="mt-2 text-sm text-gray-500"> */}
-                {/*     Tags: {event.tags.map(tag => tag.join(':')).join(', ')} */}
-                {/*   </div> */}
-                {/* )} */}
               </div>
             ))}
           </div>
@@ -89,6 +84,10 @@ export default function Home() {
 
       {/* Event ID to Words Converter */}
       <HexConverter />
+
+      <hr />
+      <br />
+      <a className="text-blue-500 underline" href="https://github.com/fanfares/approx" target='_blank'>https://github.com/fanfares/approx</a>
 
     </main>
   );
