@@ -68,15 +68,19 @@ export default function Home() {
           <div className="space-y-4">
             {events.map((event) => (
               <div key={event.id} className="p-4 border rounded">
-                <div className="text-sm text-gray-500 mb-2">
-                  Kind: {event.kind} | Created: {new Date(event.created_at * 1000).toLocaleString()}
-                </div>
                 <div className="whitespace-pre-wrap">{event.content}</div>
-                {event.tags.length > 0 && (
-                  <div className="mt-2 text-sm text-gray-500">
-                    Tags: {event.tags.map(tag => tag.join(':')).join(', ')}
-                  </div>
-                )}
+                <br />
+                <div className="text-sm text-gray-500 mb-2">
+                  Author: <a href={`https://primal.net/p/${event.pubkey}`} target='_blank'>{event.pubkey}</a> <br />
+                  ID: <a href={`https://primal.net/e/${event.id}`} target="_blank">{event.id}</a> <br />
+                  Kind: {event.kind} <br />
+                  Created: {new Date(event.created_at * 1000).toLocaleString()}
+                </div>
+                {/* {event.tags.length > 0 && ( */}
+                {/*   <div className="mt-2 text-sm text-gray-500"> */}
+                {/*     Tags: {event.tags.map(tag => tag.join(':')).join(', ')} */}
+                {/*   </div> */}
+                {/* )} */}
               </div>
             ))}
           </div>
